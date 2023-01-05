@@ -20,7 +20,7 @@ function LoginInput({ login }) {
         value={password}
         onChange={onPasswordChange}
       />
-      <button type="button" onClick={() => login(email, password)}>
+      <button type="button" onClick={() => login({ email, password })}>
         Login
       </button>
     </div>

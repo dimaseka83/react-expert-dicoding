@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AiFillike, AiFillDislike } from 'react-icons/ai';
+import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { sanitize } from 'dompurify';
 import { postedAt } from '../utils';
 
@@ -48,7 +48,7 @@ function ThreadDetail({
               className="thread-detail-votes-up-button"
               onClick={() => upVoteThread(id)}
             >
-              {isUpVoted ? <AiFillike style={{ color: 'blue' }} /> : <AiFillike />}
+              {isUpVoted ? <AiFillLike style={{ color: 'blue' }} /> : <AiFillLike />}
             </button>
             <span className="thread-detail-votes-up-count">{upVotesBy.length}</span>
           </div>

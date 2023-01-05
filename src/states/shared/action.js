@@ -1,6 +1,6 @@
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
-import { receiveThreadDetailActionCreator } from '../threadDetail/action';
+import { receiveThreadsActionCreator } from '../thread/action';
 import { receiveUsersActionCreator } from '../users/action';
 
 function asyncPopulateUsersAndThreads() {
@@ -11,7 +11,7 @@ function asyncPopulateUsersAndThreads() {
       const threads = await api.getAllThreads();
 
       dispatch(receiveUsersActionCreator(users));
-      dispatch(receiveThreadDetailActionCreator(threads));
+      dispatch(receiveThreadsActionCreator(threads));
     } catch (error) {
       console.log(error);
     }
@@ -19,4 +19,4 @@ function asyncPopulateUsersAndThreads() {
   };
 }
 
-export default asyncPopulateUsersAndThreads;
+export { asyncPopulateUsersAndThreads };

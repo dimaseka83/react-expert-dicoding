@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AifillLike, AifillDislike, AiOutlineComment } from 'react-icons/ai';
+import { AiFillLike, AiFillDislike, AiOutlineComment } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { postedAt } from '../utils';
 
@@ -55,7 +55,7 @@ function ThreadItem({
             {
                         upVote && (
                         <div className="thread-item__upvote">
-                          <AifillLike
+                          <AiFillLike
                             style={{ color: isUpVoted ? 'blue' : 'black' }}
                             onClick={onUpVoteThread}
                           />
@@ -66,7 +66,7 @@ function ThreadItem({
             {
                         downVote && (
                         <div className="thread-item__downvote">
-                          <AifillDislike
+                          <AiFillDislike
                             style={{ color: isDownVoted ? 'blue' : 'black' }}
                             onClick={onDownVoteThread}
                           />
