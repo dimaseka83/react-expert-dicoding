@@ -34,7 +34,7 @@ function ThreadItem({
   return (
     <div className="thread-item">
       <div className="thread-item__title">
-        <Link to={`/thread/${id}`}>{title}</Link>
+        <Link to={`/threads/${id}`}>{title}</Link>
       </div>
       <div className="thread-item__detail">
         <div className="thread-item__header-left">
