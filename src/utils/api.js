@@ -36,7 +36,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(`${message}`);
     }
 
     const {
@@ -59,10 +59,11 @@ const api = (() => {
     });
 
     const responseJson = await response.json();
+
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -80,7 +81,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -98,7 +99,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -116,7 +117,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -134,7 +135,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -162,7 +163,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -188,7 +189,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
     const {
@@ -214,27 +215,30 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
   }
 
   async function downVoteThread(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/threads/${id}/down-vote`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await _fetchWithAuth(
+      `${BASE_URL}/threads/${id}/down-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          threadId: id,
+        }),
       },
-      body: JSON.stringify({
-        threadId: id,
-      }),
-    });
+    );
 
     const responseJson = await response.json();
 
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
   }
 
@@ -254,7 +258,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
   }
 
@@ -275,7 +279,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
   }
 
@@ -296,12 +300,12 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
   }
 
-  async function neutralVoteComment({ threadId, commentId }) {
-    const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/comments/${commentId}/neutral-vote`, {
+  async function neutralVoteComment({ idThread, idComment }) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads/${idThread}/comments/${idComment}/neutral-vote`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -313,7 +317,7 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
   }
 
@@ -325,12 +329,10 @@ const api = (() => {
     const { status, message } = responseJson;
 
     if (status !== 'success') {
-      throw new Error(`Error: ${message}`);
+      throw new Error(message);
     }
 
-    const {
-      data: { leaderboards },
-    } = responseJson;
+    const { data: { leaderboards } } = responseJson;
 
     return leaderboards;
   }

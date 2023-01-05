@@ -13,7 +13,7 @@ function LeaderboardPage() {
 
   const leaderboardsList = leaderboards.map((leaderboard) => ({
     ...leaderboard,
-    user: users.find((user) => user.id === leaderboard.ownerId),
+    user: users.find((user) => user.id === users.id),
   }));
 
   return (

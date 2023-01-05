@@ -49,7 +49,7 @@ function ThreadItem({
             <p>{category}</p>
           </div>
           <div className="thread-item__body">
-            <p className="thread-item__body-text" dangerouslySetInnerHTML={{ __html: body }} />
+            <p className="thread-item__body-text" dangerouslySetInnerHTML={{ __html: `${body.substring(0, 100)}...` }} />
           </div>
           <div className="thread-item__footer">
             {
