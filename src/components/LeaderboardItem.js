@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 function LeaderboardItem({ user, score }) {
   return (
-    <div className="leaderboard-item">
-      <div className="leaderboard-item__user">
-        <img src={user.avatar} alt={user.name} />
-        <div className="leaderboard-item__user__name">{user.name}</div>
+    <div className="flex items-center">
+      <div className="flex items-center">
+        <img className="h-10 w-10 rounded-full" src={user.avatar} alt={user.name} />
+        <p className="ml-4 text-lg font-medium">{user.name}</p>
       </div>
-      <div className="leaderboard-item__score">{score}</div>
+      <p className="ml-auto text-lg font-medium">{score}</p>
     </div>
+
   );
 }
 

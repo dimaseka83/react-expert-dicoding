@@ -62,10 +62,13 @@ function HomePage() {
   }));
 
   return (
-    <section className="home-page">
-      <ThreadsList threads={threadList} upVote={onUpVote} downVote={onDownVote} />
-      <ThreadAddAction />
+    <section className="bg-gray-100 min-h-screen p-4">
+      <div className="container mx-auto">
+        <ThreadsList threads={threadList} upVote={onUpVote} downVote={onDownVote} className="mb-4" />
+        <ThreadAddAction className="w-full" />
+      </div>
     </section>
+
   );
 }
 

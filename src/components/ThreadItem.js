@@ -32,54 +32,45 @@ function ThreadItem({
   };
 
   return (
-    <div className="thread-item">
-      <div className="thread-item__title">
-        <Link to={`/threads/${id}`}>{title}</Link>
+    <div className="bg-white rounded-lg p-4">
+      <div className="mb-4">
+        <Link className="font-medium text-lg" to={`/threads/${id}`}>{title}</Link>
       </div>
-      <div className="thread-item__detail">
-        <div className="thread-item__header-left">
-          <div className="thread-item__user-avatar">
-            <img src={user.avatar} alt={user.name} />
+      <div className="flex items-center mb-4">
+        <div className="w-12 h-12 rounded-full overflow-hidden">
+          <img className="w-full h-full object-cover" src={user.avatar} alt={user.name} />
+        </div>
+        <div className="ml-4">
+          <p className="text-base font-medium">{user.name}</p>
+          <p className="text-sm text-gray-600">{postedAt(createdAt)}</p>
+        </div>
+      </div>
+      <div className="mb-4">
+        <p className="text-sm text-gray-700">{category}</p>
+      </div>
+      <div className="mb-4">
+        <p className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: `${body.substring(0, 100)}...` }} />
+      </div>
+      <div className="flex justify-between">
+        {
+          upVote && (
+          <div className="flex items-center">
+            <AiFillLike style={{ color: isUpVoted ? 'blue' : 'black' }} onClick={onUpVoteThread} className="w-6 h-6 mr-2" />
+            <p className="text-sm text-gray-600">{upVotesBy.length}</p>
           </div>
-          <div className="thread-item__user-name">
-            <p>{user.name}</p>
-            <p>{postedAt(createdAt)}</p>
+          )
+        }
+        {
+          downVote && (
+          <div className="flex items-center">
+            <AiFillDislike style={{ color: isDownVoted ? 'blue' : 'black' }} onClick={onDownVoteThread} className="w-6 h-6 mr-2" />
+            <p className="text-sm text-gray-600">{downVotesBy.length}</p>
           </div>
-          <div className="thread-item__category">
-            <p>{category}</p>
-          </div>
-          <div className="thread-item__body">
-            <p className="thread-item__body-text" dangerouslySetInnerHTML={{ __html: `${body.substring(0, 100)}...` }} />
-          </div>
-          <div className="thread-item__footer">
-            {
-                        upVote && (
-                        <div className="thread-item__upvote">
-                          <AiFillLike
-                            style={{ color: isUpVoted ? 'blue' : 'black' }}
-                            onClick={onUpVoteThread}
-                          />
-                          <p>{upVotesBy.length}</p>
-                        </div>
-                        )
-                    }
-            {
-                        downVote && (
-                        <div className="thread-item__downvote">
-                          <AiFillDislike
-                            style={{ color: isDownVoted ? 'blue' : 'black' }}
-                            onClick={onDownVoteThread}
-                          />
-                          <p>{downVotesBy.length}</p>
-                        </div>
-                        )
-                    }
-
-            <div className="thread-item__comment">
-              <AiOutlineComment />
-              <p>{totalComments}</p>
-            </div>
-          </div>
+          )
+        }
+        <div className="flex items-center">
+          <AiOutlineComment className="w-6 h-6 mr-2" />
+          <p className="text-sm text-gray-600">{totalComments}</p>
         </div>
       </div>
     </div>

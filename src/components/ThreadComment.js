@@ -14,9 +14,9 @@ function ThreadComment({ addComment }) {
   };
 
   return (
-    <div className="thread-comment">
+    <div className="bg-gray-100 rounded-lg p-4">
       <textarea
-        className="thread-comment-textarea"
+        className="w-full rounded-lg p-2 text-gray-800 border border-gray-400"
         placeholder="Add a comment"
         contentEditable
         data-value={comment}
@@ -24,7 +24,7 @@ function ThreadComment({ addComment }) {
       />
       <button
         type="button"
-        className="thread-comment-button"
+        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg"
         onClick={onAddComment}
       >
         Add Comment

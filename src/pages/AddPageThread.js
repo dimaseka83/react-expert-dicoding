@@ -14,9 +14,9 @@ function AddPageThread() {
   };
 
   return (
-    <div className="thread-input-page">
-      <h2>Add Thread</h2>
-      <ThreadInput addThread={onAddThread} />
+    <div className="p-4">
+      <h2 className="text-xl font-medium mb-4">Add Thread</h2>
+      <ThreadInput addThread={onAddThread} className="mt-4" />
     </div>
   );
 }

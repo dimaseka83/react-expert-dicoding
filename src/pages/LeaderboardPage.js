@@ -13,13 +13,13 @@ function LeaderboardPage() {
 
   const leaderboardsList = leaderboards.map((leaderboard) => ({
     ...leaderboard,
-    user: users.find((user) => user.id === users.id),
+    users: users.find((user) => user.id === users.id),
   }));
 
   return (
-    <div className="container">
-      <h1>Leaderboard</h1>
-      <LeaderboardList leaderboards={leaderboardsList} />
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-medium">Leaderboard</h1>
+      <LeaderboardList leaderboards={leaderboardsList} className="mt-4" />
     </div>
   );
 }

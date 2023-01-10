@@ -4,23 +4,24 @@ import ThreadCommentItem, { commentItemShape } from './ThreadCommentItem';
 
 function ListComment({ comments, upVote, downVote }) {
   return (
-    <div className="list-comment">
-      <h3>
+    <div className="">
+      <h3 className="text-xl font-medium mb-4">
         Comments
         (
         {comments.length}
         )
       </h3>
-      {
-            comments.map((comment) => (
-              <ThreadCommentItem
-                key={comment.id}
-                {...comment}
-                upVote={upVote}
-                downVote={downVote}
-              />
-            ))
-        }
+      <div className="">
+        {comments.map((comment) => (
+          <ThreadCommentItem
+            key={comment.id}
+            className=""
+            {...comment}
+            upVote={upVote}
+            downVote={downVote}
+          />
+        ))}
+      </div>
     </div>
   );
 }

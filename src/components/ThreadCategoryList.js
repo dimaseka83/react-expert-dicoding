@@ -4,13 +4,14 @@ import ThreadCategoryItem from './ThreadCategoryItem';
 
 function ThreadCategoryList({ categories, onCategory }) {
   return (
-    <div className="thread-category-list">
-      <h2>Categories Popular</h2>
-      <div className="thread-category-list-items">
+    <div className="bg-gray-100 rounded-lg p-4">
+      <h2 className="text-lg font-medium mb-4">Categories Popular</h2>
+      <div className="flex flex-wrap">
         {categories.map((category) => (
           <ThreadCategoryItem
             key={category.id}
             {...category}
+            className="w-1/3 p-2 mb-4"
             onCategory={onCategory}
           />
         ))}

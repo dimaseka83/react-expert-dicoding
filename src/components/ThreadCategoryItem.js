@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 function ThreadCategoryItem({ onCategory, category }) {
   return (
-    <div className="thread-category-item">
-      <button type="button" onClick={onCategory}>
+    <div className="p-2">
+      <button type="button" className="px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600" onClick={onCategory}>
         {category}
       </button>
     </div>

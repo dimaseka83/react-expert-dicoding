@@ -8,32 +8,33 @@ function Navigation({ authUser, signOut }) {
   const { id, name, avatar } = authUser;
 
   return (
-    <div className="navigation">
-      <Link to="/" className="navigation__logo">
+    <nav className="bg-gray-800 text-white flex items-center justify-between px-4 py-3">
+      <Link to="/" className="navigation__logo text-2xl font-medium">
         <h1>Readable</h1>
       </Link>
-      <div className="navigation__menu">
-        <Link to="/leaderboard" className="navigation__menu__item">
+      <div className="flex items-center">
+        <Link to="/leaderboard" className="mr-4 text-lg">
           <MdLeaderboard />
           <span>Leaderboard</span>
         </Link>
-        <Link to="/add" className="navigation__menu__item">
+        <Link to="/add" className="mr-4 text-lg">
           <BsFillChatQuoteFill />
           <span>New Post</span>
         </Link>
-        <div className="navigation__menu__item">
+        <div className="relative">
           <img
             src={avatar}
             alt={id}
             title={name}
+            className="w-8 h-8 rounded-full"
           />
-          <span>{name}</span>
+          <span className="text-sm font-medium ml-2">{name}</span>
         </div>
-        <button type="button" className="navigation__menu__item" onClick={signOut}>
+        <button type="button" className="ml-4 text-lg" onClick={signOut}>
           <span>Sign Out</span>
         </button>
       </div>
-    </div>
+    </nav>
   );
 }
 

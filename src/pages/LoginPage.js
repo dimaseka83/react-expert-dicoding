@@ -12,11 +12,12 @@ function LoginPage() {
   };
 
   return (
-    <div className="container">
-      <h1>Login</h1>
-      <LoginInput login={onLogin} />
-      <Link to="/register">Register</Link>
+    <div className="bg-white rounded-lg p-8 mx-auto max-w-sm flex flex-col items-center">
+      <h1 className="text-2xl font-medium text-center mb-4">Login</h1>
+      <LoginInput login={onLogin} className="mb-4" />
+      <Link className="text-blue-500 underline text-center" to="/register">Dont have an account? Register here</Link>
     </div>
+
   );
 }
 

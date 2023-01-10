@@ -4,20 +4,18 @@ import LeaderboardItem, { leaderboardItemShape } from './LeaderboardItem';
 
 function LeaderboardList({ leaderboards }) {
   return (
-    <div className="leaderboard-list">
-      <header>
-        <div className="leaderboard-list__header__user">User</div>
-        <div className="leaderboard-list__header__score">Score</div>
+    <div className="bg-gray-100 rounded-lg p-4">
+      <header className="flex justify-between">
+        <div className="text-lg font-medium">User</div>
+        <div className="text-lg font-medium">Score</div>
       </header>
-      <div className="leaderboard-list__items">
+      <div className="">
         {leaderboards.map((leaderboard) => (
-          <LeaderboardItem
-            key={leaderboard.id}
-            {...leaderboard}
-          />
+          <LeaderboardItem key={leaderboard.id} className="border-b border-gray-200" {...leaderboard} />
         ))}
       </div>
     </div>
+
   );
 }
 

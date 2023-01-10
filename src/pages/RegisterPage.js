@@ -14,10 +14,10 @@ function RegisterPage() {
   };
 
   return (
-    <div className="container">
-      <h1>Register</h1>
-      <RegisterInput register={onRegister} />
-      <Link to="/">Login</Link>
+    <div className="bg-gray-100 rounded-lg p-4 flex flex-col">
+      <h1 className="text-2xl font-medium mb-4">Register</h1>
+      <RegisterInput className="mb-4" register={onRegister} />
+      <Link to="/" className="text-indigo-500 hover:text-indigo-600">Login</Link>
     </div>
   );
 }

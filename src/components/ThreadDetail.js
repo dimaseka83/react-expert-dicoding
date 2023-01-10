@@ -21,46 +21,46 @@ function ThreadDetail({
   const isDownVoted = downVotesBy.includes(authUser);
 
   return (
-    <div className="thread-detail">
-      <div className="thread-detail-header">
-        <div className="thread-detail-header-title">{title}</div>
+    <div className="bg-white p-4">
+      <div className="flex">
+        <div className="text-lg font-medium">{title}</div>
       </div>
-      <div className="thread-detail-item">
+      <div className="mt-4">
         <header>
-          <div className="thread-detail-item-header">
-            <img src={owner.avatar} alt={owner.name} />
+          <div className="flex">
+            <img className="w-8 h-8 rounded-full" src={owner.avatar} alt={owner.name} />
           </div>
         </header>
 
-        <div className="thread-detail-owner-info">
-          <div className="thread-detail-owner-name">{owner.name}</div>
-          <div className="thread-detail-owner-category">{postedAt(createdAt)}</div>
+        <div className="mt-4 flex">
+          <div className="text-lg font-medium">{owner.name}</div>
+          <div className="ml-2 text-sm font-medium">{postedAt(createdAt)}</div>
         </div>
 
-        <div className="thread-detail-category">{category}</div>
-        <article className="thread-detail-body">
-          <p className="thread-detail-body-text" dangerouslySetInnerHTML={{ __html: sanitize(body) }} />
+        <div className="mt-2 text-sm font-medium">{category}</div>
+        <article className="mt-4 text-sm">
+          <p className="" dangerouslySetInnerHTML={{ __html: sanitize(body) }} />
         </article>
-        <div className="thread-detail-votes">
-          <div className="thread-detail-votes-up">
+        <div className="mt-4 flex">
+          <div className="mr-2">
             <button
               type="button"
-              className="thread-detail-votes-up-button"
+              className={`px-2 py-1 rounded-md ${isUpVoted && 'bg-blue-500 text-white'}`}
               onClick={() => upVoteThread(id)}
             >
-              {isUpVoted ? <AiFillLike style={{ color: 'blue' }} /> : <AiFillLike />}
+              {isUpVoted ? <AiFillLike /> : <AiFillLike />}
             </button>
-            <span className="thread-detail-votes-up-count">{upVotesBy.length}</span>
+            <span className="text-sm font-medium">{upVotesBy.length}</span>
           </div>
-          <div className="thread-detail-votes-down">
+          <div className="">
             <button
               type="button"
-              className="thread-detail-votes-down-button"
+              className={`px-2 py-1 rounded-md ${isDownVoted && 'bg-red-500 text-white'}`}
               onClick={() => downVoteThread(id)}
             >
-              {isDownVoted ? <AiFillDislike style={{ color: 'red' }} /> : <AiFillDislike />}
+              {isDownVoted ? <AiFillDislike /> : <AiFillDislike />}
             </button>
-            <span className="thread-detail-votes-down-count">{downVotesBy.length}</span>
+            <span className="text-sm font-medium">{downVotesBy.length}</span>
           </div>
         </div>
       </div>
