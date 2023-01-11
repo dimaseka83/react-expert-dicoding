@@ -46,7 +46,10 @@ function ThreadItem({
         </div>
       </div>
       <div className="mb-4">
-        <p className="text-sm text-gray-700">{category}</p>
+        <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+          #
+          {category}
+        </span>
       </div>
       <div className="mb-4">
         <p className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: `${body.substring(0, 100)}...` }} />

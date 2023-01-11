@@ -9,8 +9,8 @@ function ThreadCategoryList({ categories, onCategory }) {
       <div className="flex flex-wrap">
         {categories.map((category) => (
           <ThreadCategoryItem
-            key={category.id}
-            {...category}
+            key={category}
+            category={category}
             className="w-1/3 p-2 mb-4"
             onCategory={onCategory}
           />
@@ -21,7 +21,7 @@ function ThreadCategoryList({ categories, onCategory }) {
 }
 
 ThreadCategoryList.propTypes = {
-  categories: PropTypes.string.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
   onCategory: PropTypes.func.isRequired,
 };
 
