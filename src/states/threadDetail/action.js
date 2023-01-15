@@ -11,11 +11,11 @@ const ActionType = {
   TOGGLE_DOWNVOTE_COMMENT: 'TOGGLE_DOWNVOTE_COMMENT',
 };
 
-function receiveThreadDetailActionCreator(thread) {
+function receiveThreadDetailActionCreator(threadDetail) {
   return {
     type: ActionType.RECEIVE_THREAD_DETAIL,
     payload: {
-      thread,
+      threadDetail,
     },
   };
 }
