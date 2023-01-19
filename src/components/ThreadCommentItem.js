@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { sanitize } from 'dompurify';
 import { postedAt } from '../utils';
 
 function ThreadCommentItem({
@@ -31,9 +32,7 @@ function ThreadCommentItem({
           {postedAt(createdAt)}
         </div>
       </div>
-      <div className="text-gray-700">
-        {content}
-      </div>
+      <div className="text-gray-700" dangerouslySetInnerHTML={{ __html: sanitize(content) }} />
       <div className="flex justify-between mt-2">
         {
         upVote && (
@@ -70,7 +69,7 @@ const ownerShape = {
 const commentItemShape = {
   id: PropTypes.string.isRequired,
   owner: PropTypes.shape(ownerShape).isRequired,
-  createdAt: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,

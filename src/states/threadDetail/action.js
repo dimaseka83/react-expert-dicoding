@@ -35,11 +35,20 @@ function toggleUpVoteThreadDetailActionCreator(userId) {
   };
 }
 
-function createCommentThreadActionCreator(comment) {
+function toggleDownVoteThreadDetailActionCreator(userId) {
+  return {
+    type: ActionType.TOGGLE_DOWNVOTE_THREAD_DETAIL,
+    payload: {
+      userId,
+    },
+  };
+}
+
+function createCommentThreadActionCreator(content) {
   return {
     type: ActionType.CREATE_COMMENT_THREAD,
     payload: {
-      comment,
+      content,
     },
   };
 }
@@ -66,11 +75,11 @@ function toggleDownVoteCommentActionCreator({ threadId, commentId, userId }) {
   };
 }
 
-function asyncCreateCommentThread({ threadId, comment }) {
+function asyncCreateCommentThread({ threadId, content }) {
   return async (dispatch) => {
     try {
       dispatch(showLoading());
-      const response = await api.createComment(threadId, comment);
+      const response = await api.createComment({ threadId, content });
       dispatch(createCommentThreadActionCreator(response));
     } catch (error) {
       console.log(error);
@@ -107,7 +116,7 @@ function asyncToggleUpVoteThreadDetail() {
 function asyncToggleDownVoteThreadDetail() {
   return async (dispatch, getState) => {
     const { authUser, threadDetail } = getState();
-    dispatch(toggleUpVoteThreadDetailActionCreator(authUser.id));
+    dispatch(toggleDownVoteThreadDetailActionCreator(authUser.id));
     try {
       await api.downVoteThread(threadDetail.id);
     } catch (error) {
@@ -157,4 +166,5 @@ export {
   toggleUpVoteThreadDetailActionCreator,
   toggleUpVoteCommentActionCreator,
   toggleDownVoteCommentActionCreator,
+  toggleDownVoteThreadDetailActionCreator,
 };

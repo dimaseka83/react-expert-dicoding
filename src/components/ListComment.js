@@ -27,7 +27,7 @@ function ListComment({ comments, upVote, downVote }) {
 }
 
 ListComment.propTypes = {
-  comments: PropTypes.arrayOf(commentItemShape).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape(commentItemShape)).isRequired,
   upVote: PropTypes.func.isRequired,
   downVote: PropTypes.func.isRequired,
 };

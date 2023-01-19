@@ -52,12 +52,12 @@ function DetailPage() {
 
     if (status === 'upVote') {
       dispatch(asyncToggleDownVoteThreadDetail());
-      dispatch(asyncToggleUpVoteThreadDetail());
       setStatus('none');
     }
 
     if (status === 'downVote') {
       dispatch(asyncToggleDownVoteThreadDetail());
+      dispatch(asyncToggleUpVoteThreadDetail());
       setStatus('upVote');
     }
   };

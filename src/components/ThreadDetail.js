@@ -78,7 +78,7 @@ ThreadDetail.propTypes = {
   id: PropTypes.string.isRequired,
   authUser: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  createdAt: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   owner: PropTypes.shape(ownerShape).isRequired,
   category: PropTypes.string.isRequired,

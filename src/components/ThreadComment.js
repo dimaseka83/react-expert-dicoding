@@ -2,34 +2,34 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function ThreadComment({ addComment }) {
-  const [comment, setComment] = useState('');
+  const [content, setContent] = useState('');
 
   const onAddComment = () => {
-    addComment(comment);
-    setComment('');
+    addComment(content);
+    setContent('');
   };
 
   const handleAddComment = (event) => {
-    setComment(event.target.innerText);
+    setContent(event.target.innerText);
   };
 
   return (
-    <div className="bg-gray-100 rounded-lg p-4">
-      <textarea
-        className="w-full rounded-lg p-2 text-gray-800 border border-gray-400"
-        placeholder="Add a comment"
+    <form className="bg-gray-100 rounded-lg p-4">
+      <div
+        className="bg-white rounded-lg p-5 mb-5"
+        data-placeholder="Add a comment..."
         contentEditable
-        data-value={comment}
+        data-value={content}
         onInput={handleAddComment}
       />
       <button
-        type="button"
+        type="submit"
         className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg"
         onClick={onAddComment}
       >
         Add Comment
       </button>
-    </div>
+    </form>
   );
 }
 
