@@ -127,11 +127,12 @@ function asyncToggleDownVoteThreadDetail() {
 }
 
 function asyncToggleUpVoteComment({ threadId, commentId }) {
-  return async (dispatch, getState) => {
-    const { authUser } = getState();
-    dispatch(toggleUpVoteCommentActionCreator({ threadId, commentId, userId: authUser.id }));
+  return async (dispatch) => {
+    dispatch(showLoading());
     try {
-      await api.upVoteComment(threadId, commentId);
+      await api.upVoteComment({ threadId, commentId });
+      const threadDetail = await api.getThreadsDetail(threadId);
+      dispatch(receiveThreadDetailActionCreator(threadDetail));
     } catch (error) {
       console.log(error);
     }
@@ -140,11 +141,12 @@ function asyncToggleUpVoteComment({ threadId, commentId }) {
 }
 
 function asyncToggleDownVoteComment({ threadId, commentId }) {
-  return async (dispatch, getState) => {
-    const { authUser } = getState();
-    dispatch(toggleDownVoteCommentActionCreator({ threadId, commentId, userId: authUser.id }));
+  return async (dispatch) => {
+    dispatch(showLoading());
     try {
-      await api.downVoteComment(threadId, commentId);
+      await api.downVoteComment({ threadId, commentId });
+      const threadDetail = await api.getThreadsDetail(threadId);
+      dispatch(receiveThreadDetailActionCreator(threadDetail));
     } catch (error) {
       console.log(error);
     }
