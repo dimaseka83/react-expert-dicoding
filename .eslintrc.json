@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "cypress/globals": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -15,15 +16,19 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "cypress"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "linebreak-style": "off",
+        "no-alert": "off",
         "no-underscore-dangle": "off",
         "import/prefer-default-export": "off",
-        "no-console": "off",
+        "react/jsx-filename-extension": "off",
         "react/jsx-props-no-spreading": "off",
+        "object-curly-newline":"off",
+        "quotes": "off",
         "react/no-danger": "off",
-        "quotes": "off"
+        "no-console": "off"
     }
 }

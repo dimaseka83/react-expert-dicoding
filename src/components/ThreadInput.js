@@ -29,6 +29,7 @@ function ThreadInput({ addThread }) {
       />
       <div
         className="p-2 border border-gray-400 rounded-lg h-24 mt-2"
+        data-testid="input-body"
         contentEditable
         onInput={onChangeBody}
       />

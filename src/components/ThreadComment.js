@@ -19,6 +19,7 @@ function ThreadComment({ addComment }) {
         className="bg-white rounded-lg p-5 mb-5"
         data-placeholder="Add a comment..."
         contentEditable
+        data-testid="input-content"
         data-value={content}
         onInput={handleAddComment}
       />

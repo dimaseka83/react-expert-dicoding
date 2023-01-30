@@ -14,7 +14,7 @@ function asyncPopulateUsersAndThreads() {
       dispatch(receiveUsersActionCreator(users));
       dispatch(receiveThreadsActionCreator(threads));
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
 
     dispatch(hideLoading());
