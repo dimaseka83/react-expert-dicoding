@@ -45,20 +45,20 @@ function ThreadDetail({
           <div className="mr-2">
             <button
               type="button"
-              className={`px-2 py-1 rounded-md ${isUpVoted && 'bg-blue-500 text-white'}`}
+              className="text-blue-500 hover:text-blue-600"
               onClick={() => upVoteThread(id)}
             >
-              {isUpVoted ? <AiFillLike /> : <AiFillLike />}
+              <AiFillLike className="w-4 h-4 mr-1" style={{ color: isUpVoted ? 'blue' : 'black' }} />
             </button>
             <span className="text-sm font-medium">{upVotesBy.length}</span>
           </div>
           <div className="">
             <button
               type="button"
-              className={`px-2 py-1 rounded-md ${isDownVoted && 'bg-red-500 text-white'}`}
+              className="text-red-500 hover:text-red-600"
               onClick={() => downVoteThread(id)}
             >
-              {isDownVoted ? <AiFillDislike /> : <AiFillDislike />}
+              <AiFillDislike className="w-4 h-4 mr-1" style={{ color: isDownVoted ? 'red' : 'black' }} />
             </button>
             <span className="text-sm font-medium">{downVotesBy.length}</span>
           </div>

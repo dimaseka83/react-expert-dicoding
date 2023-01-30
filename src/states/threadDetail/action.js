@@ -81,6 +81,8 @@ function asyncCreateCommentThread({ threadId, content }) {
       dispatch(showLoading());
       const response = await api.createComment({ threadId, content });
       dispatch(createCommentThreadActionCreator(response));
+      const threadDetail = await api.getThreadsDetail(threadId);
+      dispatch(receiveThreadDetailActionCreator(threadDetail));
     } catch (error) {
       console.log(error);
     }
@@ -106,6 +108,8 @@ function asyncToggleUpVoteThreadDetail() {
     dispatch(toggleUpVoteThreadDetailActionCreator(authUser.id));
     try {
       await api.upVoteThread(threadDetail.id);
+      const threadDetails = await api.getThreadsDetail(threadDetail.id);
+      dispatch(receiveThreadDetailActionCreator(threadDetails));
     } catch (error) {
       console.log(error);
     }
@@ -119,6 +123,8 @@ function asyncToggleDownVoteThreadDetail() {
     dispatch(toggleDownVoteThreadDetailActionCreator(authUser.id));
     try {
       await api.downVoteThread(threadDetail.id);
+      const threadDetails = await api.getThreadsDetail(threadDetail.id);
+      dispatch(receiveThreadDetailActionCreator(threadDetails));
     } catch (error) {
       console.log(error);
     }
