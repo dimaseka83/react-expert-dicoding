@@ -57,7 +57,7 @@ describe('asyncPopulateUsersAndThreads thunk', () => {
 
     // action
     await asyncPopulateUsersAndThreads()(dispatch);
-/* eslint-disable no-undef */
+    /* eslint-disable no-undef */
 
     // assert
     expect(dispatch).toHaveBeenCalledWith(showLoading());
